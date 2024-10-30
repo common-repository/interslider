@@ -1,0 +1,9 @@
+.is_meta_box input[type=text] {
+  width: 100%;
+  padding: .5em; }
+.is_meta_box label {
+  margin: 1em 0em;
+  display: block; }
+.is_meta_box img {
+  display: block;
+  width: 300px; }

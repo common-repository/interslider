@@ -1,0 +1,156 @@
+﻿@import 'var';
+
+.interSlider{
+position:relative;
+width:100%;
+list-style:none;
+min-height:inherit;
+height:inherit;
+background-position:center;
+background-size:cover;
+background-repeat:no-repeat;
+	>li{
+	position:relative;
+	left:0; top:0;
+	height:inherit; width:100%;
+	overflow:hidden;
+		.image{
+		width:100%; height:inherit;
+		margin:0 auto;
+		background-size:cover;
+		background-position:center;
+		background-repeat:no-repeat;
+		position:relative;
+			.tile{
+			opacity:0;
+			position:absolute;
+			overflow:hidden;
+			@include origin(left center);
+				.rtile{
+				position:relative;
+				background-size:cover;
+				background-position:center;
+				background-repeat:no-repeat;
+				}
+			}
+		}
+		.description{
+		width:100%;
+		text-align:center;
+		padding:0;
+		position:absolute;
+		top:50%; left:0;
+		opacity:0;
+		z-index:10;
+		color:#fff;
+		@include transform(translateY(0));
+		font-size:2em;
+		white-space: pre-line;
+		line-height:1em;
+		@include transition(all 0.4s ease);
+			h2{
+			font-size:2em;
+			font-family:$menuFont;
+			color:#fff;
+			display:inline-block;
+			}
+			p{
+			margin:0; padding:0;
+			font-size:1em;
+			color:#fff;
+			display:inline-block;
+			font-weight:300;
+			}
+		}
+		img{
+		display:none;
+		width:0px; height:0px;
+		position:fixed;
+		opacity:0;
+		}
+	}
+	.progressWrap{
+	width:100%;
+	position:absolute;
+	z-index:100;
+	left:0;bottom:0;
+		.progressBar{
+		height:7px; width:0;
+		background:$baseColor;
+		}
+	}
+	ul.navigation{
+	width:100%;
+	z-index:200;
+	text-align:center;
+	position:relative;
+		li{
+		display:inline;
+			>a{
+			-webkit-font-smoothing: antialiased;
+			-webkit-backface-visibility: hidden;
+			display:inline-block;
+			width:0.75em; height:0.75em;
+			margin:2em 1em;
+			@include border-radius(50%);
+			background:#fff;
+			cursor:pointer;
+			@include transition(all 0.3s ease);
+			}
+			&:not(.control) > a{
+			@include box-shadow(0px 0px 0px 1px #666, inset 0px 0px 1px #444);
+			border:1px solid #eee;
+				&:hover{
+				background:#ddd;
+				}
+				&.active{
+				@include box-shadow(0px 0px 0px 1px #444, inset 0px 0px 3px #666);
+				border:1px solid #eee;
+				background:#444;
+				}
+			}
+			
+			&.control{
+				a{
+				@include border-radius(0);
+					&.play{
+					background:url('img/play.png') no-repeat center;
+					background-size:100%;
+					}
+					&.pause{
+					background:url('img/pause.png') no-repeat center;
+					background-size:100%;
+					}
+				}
+				
+			}
+		}
+		
+	}
+	&:hover > a{
+	opacity:1;
+	}
+	> a{
+	position:absolute;
+	top:50%;
+	@include transform(translateY(-50%));
+	display:block;
+	width:4em; height:4em;
+	cursor:pointer;
+	@include transition(all 0.3s ease);
+	opacity:0;
+	background:url(img/prev.png) no-repeat center;
+	background-size:60%;
+	z-index:100;
+		&.prev{
+		left:0;
+		margin-right:4em;
+		}
+		&.next{
+		right:0;
+		@include transform(rotate(-180deg) translateY(50%));
+		margin-left:4em;
+		}
+		
+	}
+}

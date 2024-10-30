@@ -1,0 +1,104 @@
+﻿$font: 'Open Sans', sans-serif;
+$menuFont: 'Montserrat', sans-serif;
+$baseColor: #0095eb;
+
+@mixin clear(){
+display:block;
+content:"";
+clear:both;
+}
+@mixin perspective($var){
+-webkit-perspective: $var;
+-moz-perspective: $var;
+-o-perspective: $var;
+perspective: $var;
+}
+@mixin select($var){
+-webkit-touch-callout: $var;
+-webkit-user-select: $var;
+-khtml-user-select: $var;
+-moz-user-select: $var;
+-ms-user-select: $var;
+user-select: $var;
+}
+@mixin blur($var){
+-webkit-filter: blur($var);
+filter: blur($var);
+}
+@mixin grayscale($percent){
+-webkit-filter: grayscale($percent);
+-moz-filter:grayscale($percent);
+-ms-filter:grayscale($percent);
+filter: grayscale($percent);
+}
+@mixin flexbox(){
+display: -webkit-box;
+display: -moz-box;
+display: -ms-flexbox;
+display: flex;
+}
+@mixin flex($arg){
+-webkit-flex:$arg;
+-moz-flex:$arg;
+-ms-flex:$arg;
+flex:$arg;
+}
+@mixin transform($type){
+	-webkit-transform:#{$type}; 
+	-moz-transform:#{$type};
+	-ms-tranform:#{$type}; 
+	-o-transform:#{$type};
+	transform:#{$type};
+}
+@mixin origin($ori){
+	transform-origin:$ori; 
+	-webkit-transform-origin:$ori; 
+	-moz-transform-origin:$ori;
+	-ms-tranform-origin:$ori; 
+	-o-transform-origin:$ori;
+}
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+	-moz-animation: $animation;
+	-ms-animation: $animation;
+	-o-animation: $animation;
+	animation: $animation;
+}
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	-ms-box-shadow: $shadow;
+	-o-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+@mixin text-shadow($shadow...) {
+  -webkit-text-shadow: $shadow;
+	-moz-text-shadow: $shadow;
+	-ms-text-shadow: $shadow;
+	-o-text-shadow: $shadow;
+	text-shadow: $shadow;
+}
+@mixin gradient($type, $color1, $start, $color2, $end) {
+background: #f20081; /* Old browsers */
+background: -moz-#{$type}-gradient($start,  $color1 0%, $color2 100%); /* FF3.6+ */
+background: -webkit-gradient($type, $start, $end, color-stop(0%,$color1), color-stop(100%,$color2)); /* Chrome,Safari4+ */
+background: -webkit-#{$type}-gradient($start,  $color1 0%,$color2 100%); /* Chrome10+,Safari5.1+ */
+background: -o-#{$type}-gradient($start, $color1 0%,$color2 100%); /* Opera 11.10+ */
+background: -ms-#{$type}-gradient($start, $color1 0%,$color2 100%); /* IE10+ */
+background: #{$type}-gradient(to $end,  $color1 0%,$color2 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=0 ); /* IE6-9 */
+}
